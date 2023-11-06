@@ -1,0 +1,28 @@
+<resources>
+
+
+    <!-- Base button style that overrides MaterialComponents -->
+    <style name="Base.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="vereinsfliegerButton" parent="Base.Button">
+        <item name="backgroundTint">@color/vereinsfliegerButton</item>
+    </style>
+
+    <style name="glidertrackerButton" parent="Base.Button">
+        <item name="backgroundTint">@color/glidertrackerButton</item>
+    </style>
+
+
+    <style name="flightbookButton" parent="Base.Button">
+        <item name="backgroundTint">@color/flightbookButton</item>
+    </style>
+
+    <style name="regenradarButton" parent="Base.Button">
+        <item name="backgroundTint">@color/regenradarButton</item>
+    </style>
+
+
+
+</resources>

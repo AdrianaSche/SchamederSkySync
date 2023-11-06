@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/vereinsflieger"
+        android:layout_width="204dp"
+        android:layout_height="109dp"
+        style="@style/vereinsfliegerButton"
+        android:padding="16dp"
+        android:text="Vereinsflieger"
+        app:layout_constraintBottom_toTopOf="@id/btnWetter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnWetter"
+        android:layout_width="201dp"
+        android:layout_height="106dp"
+        style="@style/regenradarButton"
+        android:padding="16dp"
+        android:text="Regenradar"
+        app:layout_constraintBottom_toTopOf="@id/btnFlightBook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vereinsflieger"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnFlightBook"
+        android:layout_width="201dp"
+        android:layout_height="102dp"
+        style="@style/flightbookButton"
+        android:padding="16dp"
+        android:text="Flightbook"
+        app:layout_constraintBottom_toTopOf="@id/btnGliderTracker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnWetter"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnGliderTracker"
+        android:layout_width="194dp"
+        android:layout_height="104dp"
+        style="@style/glidertrackerButton"
+        android:padding="16dp"
+        android:text="Glidertracker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFlightBook"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
