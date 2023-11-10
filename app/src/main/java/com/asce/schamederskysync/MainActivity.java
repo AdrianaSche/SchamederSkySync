@@ -2,14 +2,15 @@ package com.asce.schamederskysync;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.content.Intent;
-import android.net.Uri;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.browser.customtabs.CustomTabsIntent;
 
 public class MainActivity extends AppCompatActivity {
+
+    private WebView webView;
 
     String vereinsfliegerUrl = "http://www.vereinsflieger.de";
     String wetterUrl = "https://www.wetteronline.de/wetter/erndtebrueck/schameder";
@@ -21,43 +22,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupButtonWithLongClickListener(R.id.vereinsflieger, vereinsfliegerUrl);
-        setupButtonWithLongClickListener(R.id.btnWetter, wetterUrl);
-        setupButtonWithLongClickListener(R.id.btnFlightBook, flightBookUrl);
-        setupButtonWithLongClickListener(R.id.btnGliderTracker, gliderTrackerUrl);
+        webView = findViewById(R.id.webview);
+        setupWebView();
+
+        setupButtonWithClickListener(R.id.vereinsflieger, vereinsfliegerUrl);
+        setupButtonWithClickListener(R.id.btnWetter, wetterUrl);
+        setupButtonWithClickListener(R.id.btnFlightBook, flightBookUrl);
+        setupButtonWithClickListener(R.id.btnGliderTracker, gliderTrackerUrl);
     }
 
-    private void setupButtonWithLongClickListener(int buttonId, String url) {
+    private void setupButtonWithClickListener(int buttonId, String url) {
         Button button = findViewById(buttonId);
-        button.setOnLongClickListener(view -> {
-            showPopupMenu(view, url);
-            return true;
-        });
+        button.setOnClickListener(view -> openInWebView(url));
     }
 
-    private void showPopupMenu(View view, String url) {
-        PopupMenu popup = new PopupMenu(MainActivity.this, view);
-        popup.getMenuInflater().inflate(R.menu.open_link_menu, popup.getMenu());
-        popup.setOnMenuItemClickListener(item -> {
-            if(item.getItemId() == R.id.open_in_new_tab) {
-                openCustomTab(url);
-            }else {
-                openInBrowser(url);
-            }
-            return true;
-        });
-        popup.show();
+    private void setupWebView() {
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.clearCache(true);
+
     }
 
-    private void openCustomTab(String url) {
-        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        CustomTabsIntent customTabsIntent = builder.build();
-        customTabsIntent.intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        customTabsIntent.launchUrl(MainActivity.this, Uri.parse(url));
+    private void openInWebView(String url) {
+        webView.loadUrl(url);
+        webView.setVisibility(View.VISIBLE);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
     }
 
-    private void openInBrowser(String url) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(browserIntent);
+    // Überschreiben Sie onBackPressed, um WebView-Navigation zu ermöglichen
+    @Override
+    public void onBackPressed() {
+        if (webView.getVisibility() == View.VISIBLE && webView.canGoBack()) {
+            webView.goBack();
+        } else if (webView.getVisibility() == View.VISIBLE) {
+            webView.setVisibility(View.GONE);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
