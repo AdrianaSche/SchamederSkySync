@@ -2,11 +2,11 @@
 
 
     <!-- Base button style that overrides MaterialComponents -->
-    <style name="Base.Button" parent="Widget.MaterialComponents.Button">
+   <style name="Base.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="vereinsfliegerButton" parent="Base.Button">
+    <!-- <style name="vereinsfliegerButton" parent="Base.Button">
         <item name="backgroundTint">@color/vereinsfliegerButton</item>
     </style>
 
@@ -21,8 +21,39 @@
 
     <style name="regenradarButton" parent="Base.Button">
         <item name="backgroundTint">@color/regenradarButton</item>
+    </style>-->
+
+
+
+    <!--  Buttons in komplementärfarben  -->
+
+    <style name="vereinsfliegerButton" parent="Base.Button">
+        <item name="backgroundTint">@color/vereinsfliegerBackground</item>
+        <item name="android:textColor">@color/vereinsfliegerText</item>
+        <item name="android:textSize">80sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="regenradarButton" parent="Base.Button">
+        <item name="backgroundTint">@color/regenradarBackground</item>
+        <item name="android:textColor">@color/regenradarText</item>
+        <item name="android:textSize">80sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="flightbookButton" parent="Base.Button">
+        <item name="backgroundTint">@color/flightbookBackground</item>
+        <item name="android:textColor">@color/flightbookText</item>
+        <item name="android:textSize">80sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="glidertrackerButton" parent="Base.Button">
+        <item name="backgroundTint">@color/glidertrackerBackground</item>
+        <item name="android:textColor">@color/glidertrackerText</item>
+        <item name="android:textSize">80sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 
 </resources>

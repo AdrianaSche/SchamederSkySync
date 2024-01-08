@@ -11,4 +11,22 @@
     <color name="glidertrackerButton">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="vereinsfliegerButton">#f8b4c2</color>
+
+    <!-- Neue Farben für die Buttons -->
+    <color name="vereinsfliegerBackground">#FFA500</color> <!-- Orange -->
+    <color name="vereinsfliegerText">#0000FF</color> <!-- Blau -->
+
+    <color name="regenradarBackground">#FFFF00</color> <!-- Gelb -->
+    <color name="regenradarText">#5303fd</color> <!-- Violett -->
+
+    <color name="flightbookBackground">#9efd03</color> <!-- grün -->
+    <color name="flightbookText">#fd0b03</color> <!-- rot -->
+
+    <color name="glidertrackerBackground">#FFFFFFFF</color> <!-- weiß -->
+    <color name="glidertrackerText">#FF000000</color> <!-- schware -->
+
+
+    <!-- buttn Regenradar:  Gelb mit violetter Schrift
+buttn Flightbook: grün mit roter Schrift
+buttin glidertracker: weiß mit schwarzer Schrift-->
 </resources>
